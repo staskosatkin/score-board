@@ -8,3 +8,4 @@
     - Basic interface for the scoreboard storage
     - Essential entities
     - Maven support
+    - In-memory storage implementation
