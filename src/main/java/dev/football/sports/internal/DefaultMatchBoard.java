@@ -10,6 +10,7 @@ import dev.football.sports.domain.entity.Team;
 import dev.football.sports.spi.Clock;
 import dev.football.sports.spi.ScoreBoardRepository;
 
+import java.time.Instant;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
@@ -22,7 +23,7 @@ public class DefaultMatchBoard implements MatchBoard {
 
     public DefaultMatchBoard(ScoreBoardRepository scoreBoardRepository, Clock clock) {
         this.scoreBoardRepository = Objects.requireNonNull(scoreBoardRepository);
-        this.clock = clock;
+        this.clock = Objects.requireNonNullElse(clock, Instant::now);
     }
 
     public MatchView startMatch(String teamHomeName, String teamAwayName) {
@@ -61,9 +62,10 @@ public class DefaultMatchBoard implements MatchBoard {
 
     public List<MatchView> getSummaryByTotalScore() {
         return scoreBoardRepository.findAll().stream().
-                sorted(Comparator.comparingInt((Match m) -> m.getScore().getHome() + m.getScore().getAway())
-                        .reversed()
-                        .thenComparing(Match::getStartTime)).
+                sorted(
+                        Comparator.comparingInt((Match m) -> m.getScore().getHome() + m.getScore().getAway()).reversed()
+                        .thenComparing(Comparator.comparing(Match::getStartTime).reversed())
+                ).
                 map(MatchAdapter::viewOf).
                 collect(Collectors.toList());
     }

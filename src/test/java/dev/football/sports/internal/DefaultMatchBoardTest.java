@@ -109,8 +109,8 @@ class DefaultMatchBoardTest {
 
         List<MatchView> views = matchBoard.getSummaryByTotalScore();
 
-        assertEquals("3f306c2a-bf9b-4cd1-bfe5-9f38778f2540", views.get(2).getId());
+        assertEquals("3f306c2a-bf9b-4cd1-bfe5-9f38778f2540", views.get(1).getId());
         assertEquals("3f306c2a-bf9b-4cd1-bfe5-9f38778f2541", views.get(0).getId());
-        assertEquals("3f306c2a-bf9b-4cd1-bfe5-9f38778f2542", views.get(1).getId());
+        assertEquals("3f306c2a-bf9b-4cd1-bfe5-9f38778f2542", views.get(2).getId());
     }
 }
