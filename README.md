@@ -4,6 +4,18 @@ This is a simple football score bard. It shows the list of ongoing matches with 
 
 ## Installation
 
+This library is available on GitHub.
+
+Maven Installation
+```maven
+<dependency>
+  <groupId>io.github.staskosatkin</groupId>
+  <artifactId>score-board</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
+}
+
 ## Usage
 
 ### Basic implementation provides in-memory storage
