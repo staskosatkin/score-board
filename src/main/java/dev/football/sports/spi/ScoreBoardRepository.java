@@ -13,5 +13,5 @@ public interface ScoreBoardRepository {
 
     void storeMatch(Match match);
 
-    boolean removeMatch(MatchId matchId);
+    Match removeMatch(MatchId matchId);
 }

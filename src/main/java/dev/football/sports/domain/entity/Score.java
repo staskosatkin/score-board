@@ -1,5 +1,7 @@
 package dev.football.sports.domain.entity;
 
+import dev.football.sports.api.errors.InvalidScoreException;
+
 import java.util.Objects;
 
 public class Score {
@@ -7,8 +9,15 @@ public class Score {
     private final int away;
 
     public Score(int home, int away) {
+        if (home < 0 || away < 0) {
+            throw new InvalidScoreException("Home or Away score cannot be negative. Provided: " + home + ":" + away);
+        }
         this.home = home;
         this.away = away;
+    }
+
+    public static Score zero() {
+        return new Score(0, 0);
     }
 
     public int getHome() {

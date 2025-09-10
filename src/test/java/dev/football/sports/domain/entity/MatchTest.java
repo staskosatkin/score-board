@@ -13,7 +13,13 @@ class MatchTest {
     void testMatchGetters() {
         UUID uuid = UUID.randomUUID();
         Instant now = Instant.now();
-        Match match = new Match(new MatchId(uuid), new Score(0, 0), new Team("Home"), new Team("Away"), now);
+        Match match = Match.builder()
+                .setMatchId(new MatchId(uuid))
+                .setScore(new Score(0, 0))
+                .setHome(new Team("Home"))
+                .setAway(new Team("Away"))
+                .setStartTime(now)
+                .build();
 
         assertEquals(uuid.toString(), match.getMatchId().toString());
         assertEquals(new Score(0, 0), match.getScore());

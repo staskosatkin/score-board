@@ -1,4 +1,4 @@
-package dev.football.sports.impl;
+package dev.football.sports.internal;
 
 import dev.football.sports.domain.entity.Match;
 import dev.football.sports.domain.entity.MatchId;
@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class InMemoryScoreBoardRepositoryImpl implements ScoreBoardRepository {
     private final Map<MatchId, Match> map = new HashMap<>();
@@ -28,7 +29,7 @@ public class InMemoryScoreBoardRepositoryImpl implements ScoreBoardRepository {
     }
 
     @Override
-    public boolean removeMatch(MatchId matchId) {
-        return map.remove(matchId) != null;
+    public Match removeMatch(MatchId matchId) {
+        return map.remove(matchId);
     }
 }

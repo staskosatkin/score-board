@@ -14,6 +14,10 @@ public class MatchId {
         return new MatchId(UUID.randomUUID());
     }
 
+    public static MatchId fromString(String matchId) {
+        return new MatchId(UUID.fromString(matchId));
+    }
+
     public UUID getUuid() {
         return uuid;
     }

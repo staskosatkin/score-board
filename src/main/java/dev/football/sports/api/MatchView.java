@@ -2,7 +2,6 @@ package dev.football.sports.api;
 
 import java.io.Serializable;
 import java.util.Objects;
-import java.util.UUID;
 
 public class MatchView implements Serializable {
     private final String id;

@@ -1,4 +1,4 @@
-package dev.football.sports.impl;
+package dev.football.sports.internal;
 
 import dev.football.sports.domain.entity.Match;
 import dev.football.sports.domain.entity.MatchId;
@@ -58,7 +58,7 @@ class InMemoryScoreBoardRepositoryImplTest {
         Match match = new Match(MatchId.random(), new Score(1, 1), new Team("Home"), new Team("Away"), Instant.now());
         repository.storeMatch(match);
 
-        assertTrue(repository.removeMatch(match.getMatchId()));
+        assertEquals(match, repository.removeMatch(match.getMatchId()));
         assertNull(repository.findByMatchId(match.getMatchId()));
     }
 }
