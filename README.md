@@ -26,9 +26,14 @@ MatchBoard matchBoard = MatchBoardBuilder.MatchBoardInMemory();
 
 // Add as many matches as you want
 MatchView mc = matchBoard.startMatch("Mexico", "Canada");
+MatchView aa = matchBoard.startMatch("Argentina", "Australia");
+
 
 // Finish any match by matchId
 MatchView finalMatchState = matchBoard.finishMatch("3f306c2a-bf9b-4cd1-bfe5-9f38778f2544");
+
+// Update match score
+matchBoard.updateScore(aa.getId(), 3, 1);
 
 // Receive current matches ordered by total score
 List<MatchView> currentMatches = matchBoard.getSummaryByTotalScore();
