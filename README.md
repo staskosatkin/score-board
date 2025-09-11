@@ -11,7 +11,7 @@ Maven Installation
 <dependency>
   <groupId>io.github.staskosatkin</groupId>
   <artifactId>score-board</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 </dependency>
 ```
 }
@@ -51,3 +51,16 @@ class MyOwnStorage implements ScoreBoardRepository {
 // MatchBoardBuilder provides possibility to create customized version of the service
 MatchBoard matchBoard = MatchBoardBuilder.MatchBoardCustom(myOwnStorageObject);
 ```
+
+## Notes
+
+I tried to follow as simple solution as possible
+This library can be created by builder, but also can be instantiated in spring boot as a bean
+Basic in-memory storage is a simple hashmap. Currently I don't have any concurrent operation, but for incrementing operation it will require new storage implementation based on threadsafe structures, such as ConcurrentHashMap
+
+## Ideas for improvement
+
+- Store teams in db as well
+- Add match statuses (Scheduled/started/finished/canceled/delayed)
+- Add interface allows increase/decrease score for home/away teams
+- gradle support

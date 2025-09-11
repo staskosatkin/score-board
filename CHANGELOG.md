@@ -1,6 +1,6 @@
 # Changelog
 
-## v1.0.0
+## 1.0.0
 
 ### Added
     - First version of library
@@ -10,3 +10,6 @@
     - Maven support
     - In-memory storage implementation
     - DefaultMatchBoard facadewith necessary interface
+
+## 1.0.1
+    - Readme was updated
